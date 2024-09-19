@@ -21,6 +21,10 @@ public class User {
         this.id = id;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -66,4 +70,5 @@ public class User {
         return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullName=" + fullName
                 + ", address=" + address + ", phone=" + phone + "]";
     }
+
 }
