@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class User {
@@ -33,6 +35,7 @@ public class User {
         this.email = email;
     }
 
+    @Min(3)
     public String getPassword() {
         return password;
     }
@@ -49,14 +52,17 @@ public class User {
         this.fullName = fullName;
     }
 
+    @NotNull
     public String getAddress() {
         return address;
     }
 
+    @NotNull
     public void setAddress(String address) {
         this.address = address;
     }
 
+    @NotNull
     public String getPhone() {
         return phone;
     }

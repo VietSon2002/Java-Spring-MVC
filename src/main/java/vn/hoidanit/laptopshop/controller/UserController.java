@@ -13,7 +13,6 @@ import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UserService;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
@@ -70,7 +69,7 @@ public class UserController {
     }
 
     @PostMapping("/admin/user/update")
-    public String postUpdateUser(Model model, @ModelAttribute("newUser") User moimoi) {
+    public String postUpdateConten(Model model, @ModelAttribute("newUser") User moimoi) {
         User currentUser = this.userService.getUserById(moimoi.getId());
         if (currentUser != null) {
             currentUser.setAddress(moimoi.getAddress());
