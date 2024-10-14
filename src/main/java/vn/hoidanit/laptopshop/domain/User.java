@@ -4,8 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 
 @Entity
 public class User {
@@ -13,10 +12,20 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Email(message = "Email is invalid")
+    @NotBlank(message = "Email can't be null")
     private String email;
+
+    @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
+
     private String fullName;
+
+    @NotBlank(message = "Address cant null")
     private String address;
+
+    @NotBlank(message = "Phone cant null")
     private String phone;
 
     public void setId(long id) {
@@ -35,7 +44,6 @@ public class User {
         this.email = email;
     }
 
-    @Min(3)
     public String getPassword() {
         return password;
     }
@@ -52,17 +60,14 @@ public class User {
         this.fullName = fullName;
     }
 
-    @NotNull
     public String getAddress() {
         return address;
     }
 
-    @NotNull
     public void setAddress(String address) {
         this.address = address;
     }
 
-    @NotNull
     public String getPhone() {
         return phone;
     }

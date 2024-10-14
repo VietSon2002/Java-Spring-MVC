@@ -2,8 +2,10 @@ package vn.hoidanit.laptopshop.controller;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,16 +51,21 @@ public class UserController {
         return "admin/user/user-detail";
     }
 
-    @RequestMapping("/admin/user/create") // get
+    @GetMapping("/admin/user/create") // GET
     public String getUserPage(Model model) {
-        model.addAttribute("newUser", new User()); // truyen bien qua view
-        return "admin/user/create";
+        model.addAttribute("newUser", new User()); // Truyền biến qua view
+        return "admin/user/create";  // Đảm bảo đúng tên view (JSP)
     }
 
-    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST) // trang luu
-    public String CreateUserPage(Model model, @ModelAttribute("newUser") User moimoi) {
+    @PostMapping("/admin/user/create") // POST
+    public String createUserPage(@Valid @ModelAttribute("newUser") User moimoi, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            // Nếu có lỗi, trả lại trang form để người dùng sửa thông tin
+            return "admin/user/create";  // Đồng nhất tên view với GET
+        }
+        // Nếu không có lỗi, tiến hành lưu người dùng
         this.userService.handleSaveUser(moimoi);
-        return "redirect:/admin/user";
+        return "redirect:/admin/user";  // Sau khi thành công, chuyển hướng
     }
 
     @RequestMapping("/admin/user/update/{id}")
