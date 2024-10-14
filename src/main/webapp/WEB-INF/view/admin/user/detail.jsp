@@ -22,27 +22,31 @@
     <jsp:include page="../layout/sidebar.jsp"/>
     <div id="layoutSidenav_content">
         <main>
-            <div class="px-4">
-                <h1 class="mt-4">User Update</h1>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">User Detail</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active"><a href="/admin">Dashboard</a></li>
                     <li class="breadcrumb-item active">User</li>
                 </ol>
-                <div class="mt-5">
+                <div class="container mt-5">
                     <div class="row">
-                        <div class="col-12">
-                            <h3>Delete User</h3>
-                            <div class="alert alert-danger" role="alert">
-                                Are you sure want to delete user id ${id}
+                        <div class="col-md-12 col-12 mx-auto">
+                            <div class="d-flex justify-content-between">
+                                <h3>User Detail ${id}</h3>
                             </div>
-                            <form:form modelAttribute="newUser" action="/admin/user/delete" method="post">
-                                <div class="mb-3" style="display: none;">
-                                    <label class="form-label">Id:</label>
-                                    <form:input value="${id}" type=" text" class="form-control" path="id" />
+                            <hr />
+                            <div class="card mb-3" style="width: 60%;">
+                                <div class="card-header">
+                                    User Information
                                 </div>
-                                <button class="btn btn-danger">Confirm</button>
-                                <a href="/admin/user" type="button" class="btn btn-secondary">Back</a>
-                            </form:form>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">ID: ${id}</li>
+                                    <li class="list-group-item">Email: ${user.email}</li>
+                                    <li class="list-group-item">FullName: ${user.fullName}</li>
+                                    <li class="list-group-item">Address: ${user.address}</li>
+                                </ul>
+                            </div>
+                            <a href="/admin/user" type="button" class="btn btn-secondary">Back</a>
                         </div>
                     </div>
                 </div>

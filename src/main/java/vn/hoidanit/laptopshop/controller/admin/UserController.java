@@ -1,4 +1,4 @@
-package vn.hoidanit.laptopshop.controller;
+package vn.hoidanit.laptopshop.controller.admin;
 
 import java.util.List;
 
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UserService;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -40,7 +39,7 @@ public class UserController {
         List<User> users = this.userService.geAllUser();
         model.addAttribute("users1", users); // users la gia triben contoller Users1
         // la gia tri nhan duoc ben view
-        return "admin/user/table-user";
+        return "admin/user/show";
     }
 
     @RequestMapping("/admin/user/{id}")
@@ -48,7 +47,7 @@ public class UserController {
         User user = this.userService.getUserById(id);// {id} va id phai giong nhau
         model.addAttribute("user", user); // truyen qua view
         model.addAttribute("id", id);
-        return "admin/user/user-detail";
+        return "admin/user/detail";
     }
 
     @GetMapping("/admin/user/create") // GET
