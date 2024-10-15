@@ -6,14 +6,11 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.multipart.MultipartFile;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UserController {
@@ -24,7 +21,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/admin")
     public String getHomePage(Model model) {
         List<User> arrUsers = this.userService.getAllUserByEmail("son@gmail.com");
         System.err.println(arrUsers);
@@ -52,19 +49,20 @@ public class UserController {
 
     @GetMapping("/admin/user/create") // GET
     public String getUserPage(Model model) {
-        model.addAttribute("newUser", new User()); // Truyền biến qua view
-        return "admin/user/create";  // Đảm bảo đúng tên view (JSP)
+        model.addAttribute("newUser", new User());
+        return "admin/user/create";
     }
 
     @PostMapping("/admin/user/create") // POST
-    public String createUserPage(@Valid @ModelAttribute("newUser") User moimoi, BindingResult result, Model model) {
+    public String createUserPage(
+                                @Valid
+                                 @ModelAttribute("newUser") User moimoi,
+                                 @RequestParam("anhFile") MultipartFile file, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            // Nếu có lỗi, trả lại trang form để người dùng sửa thông tin
-            return "admin/user/create";  // Đồng nhất tên view với GET
+            return "admin/user/create";
         }
-        // Nếu không có lỗi, tiến hành lưu người dùng
-        this.userService.handleSaveUser(moimoi);
-        return "redirect:/admin/user";  // Sau khi thành công, chuyển hướng
+//        this.userService.handleSaveUser(moimoi);
+        return "redirect:/admin/user";
     }
 
     @RequestMapping("/admin/user/update/{id}")

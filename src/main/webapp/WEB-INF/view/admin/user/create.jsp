@@ -12,6 +12,18 @@
     <meta name="author" content="Hỏi Dân IT" />
     <title>Create User</title>
     <link href="/css/styles.css" rel="stylesheet" />
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            const avatarFile = $("#avatarFile");
+            avatarFile.change(function (e) {
+                const imgURL = URL.createObjectURL(e.target.files[0]);
+                $("#avatarPreview").attr("src", imgURL);
+                $("#avatarPreview").css({ "display": "block" });
+            });
+        });
+    </script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -33,43 +45,67 @@
                         <div class="col-md-6 col-12 mx-auto">
                             <h3>Create a User</h3>
                             <hr />
-                            <form:form method="post" action="/admin/user/create" modelAttribute="newUser">
-                                <div class="mb-3">
-                                    <label class="form-label">Email address:</label>
-                                    <form:input type="email" class="form-control" path="email" />
-                                    <form:errors cssClass="text-danger mt-3" path="email" />
+                            <form:form method="post" action="/admin/user/create" modelAttribute="newUser" enctype="multipart/form-data">
+                                <div class="row g-3">
+                                    <div class="col-md-6 col-12">
+                                        <label class="form-label">Email address:</label>
+                                        <form:input type="email" class="form-control" path="email" />
+                                        <form:errors cssClass="text-danger mt-3" path="email" />
+                                    </div>
+
+                                    <div class="col-md-6 col-12">
+                                        <label class="form-label">Password:</label>
+                                        <form:password class="form-control" path="password" />
+                                        <form:errors cssClass="text-danger mt-3" path="password" />
+                                    </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Password:</label>
-                                    <form:password class="form-control" path="password" />
-                                    <form:errors cssClass="text-danger mt-3" path="password" />
+                                <div class="row g-3">
+                                    <div class="col-md-6 col-12">
+                                        <label class="form-label">Phone number:</label>
+                                        <form:input type="text" class="form-control" path="phone" />
+                                        <form:errors cssClass="text-danger mt-3" path="phone" />
+                                    </div>
+
+                                    <div class="col-md-6 col-12">
+                                        <label class="form-label">Full name:</label>
+                                        <form:input type="text" class="form-control" path="fullName" />
+                                        <form:errors cssClass="text-danger mt-3" path="fullName" />
+                                    </div>
+
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Full name:</label>
-                                    <form:input type="text" class="form-control" path="fullName" />
-                                    <form:errors cssClass="text-danger mt-3" path="fullName" />
-                                </div>
-
-                                <div class="mb-3">
+                                <div class="col-12">
                                     <label class="form-label">Address:</label>
                                     <form:input type="text" class="form-control" path="address" />
                                     <form:errors cssClass="text-danger mt-3" path="address" />
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Phone number:</label>
-                                    <form:input type="text" class="form-control" path="phone" />
-                                    <form:errors cssClass="text-danger mt-3" path="phone" />
+                                <div class="row g-3">
+                                    <div class="col-md-6 col-12">
+                                        <label class="form-label">Role:</label>
+                                        <form:select class="form-select" path="role.name">
+                                            <form:option value="ADMIN">ADMIN</form:option>
+                                            <form:option value="USER">USER</form:option>
+                                        </form:select>
+                                    </div>
+
+                                    <div class="col-md-6 col-12">
+                                        <label for="avatarFile" class="form-label">Avatar:</label>
+                                        <div class="mb-3">
+                                            <input class="form-control" type="file" id="avatarFile" accept=".png, .jpg, .ipeg" name="anhFile"/>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                <div class="col-12 mb-3">
+                                    <img style="max-height: 250px; display: none;" alt="avatar preview" id="avatarPreview"/>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                                <a href="/admin/user" type="button" class="btn btn-secondary">Back</a>
+
+                                <div class="col-12 mb-5">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <a href="/admin/user" type="button" class="btn btn-secondary">Back</a>
+                                </div>
                             </form:form>
                         </div>
                     </div>
