@@ -2,7 +2,7 @@ package vn.hoidanit.laptopshop.controller.admin;
 
 import java.util.List;
 
-import jakarta.validation.Valid;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,10 +18,12 @@ public class UserController {
 
     private final UserService userService;
     private final UploadService uploadService;
+    private final PasswordEncoder PasswordEncoder;
 
-    public UserController(UserService userService, UploadService uploadService) {
+    public UserController(UserService userService, UploadService uploadService, PasswordEncoder PasswordEncoder) {
         this.userService = userService;
         this.uploadService = uploadService;
+        this.PasswordEncoder = PasswordEncoder;
     }
 
     @RequestMapping("/admin")
@@ -58,15 +60,21 @@ public class UserController {
 
     @PostMapping("/admin/user/create") // POST
     public String createUserPage(
-                                 @ModelAttribute("newUser") User moimoi,
-                                 @RequestParam("anhFile") MultipartFile file, BindingResult result, Model model) {
+                                 @ModelAttribute("newUser") User moimoi, BindingResult result,
+                                 @RequestParam("anhFile") MultipartFile file,  Model model) {
 
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
-                                    
+        String hashPassword = this.PasswordEncoder.encode(moimoi.getPassword());
         if (result.hasErrors()) {
             return "admin/user/create";
         }
-//        this.userService.handleSaveUser(moimoi);
+
+        moimoi.setAvatar(avatar);
+        moimoi.setPassword(hashPassword);
+        moimoi.setRole(this.userService.getRoleByName(moimoi.getRole().getName())); //lay role
+        System.out.println("Quyen: " + moimoi.getRole());
+        //save
+        this.userService.handleSaveUser(moimoi);
         return "redirect:/admin/user";
     }
 
