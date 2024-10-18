@@ -60,8 +60,8 @@ public class UserController {
 
     @PostMapping("/admin/user/create") // POST
     public String createUserPage(
-                                 @ModelAttribute("newUser") User moimoi, BindingResult result,
-                                 @RequestParam("anhFile") MultipartFile file,  Model model) {
+            @ModelAttribute("newUser") User moimoi, BindingResult result,
+            @RequestParam("anhFile") MultipartFile file, Model model) {
 
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
         String hashPassword = this.PasswordEncoder.encode(moimoi.getPassword());
@@ -71,9 +71,9 @@ public class UserController {
 
         moimoi.setAvatar(avatar);
         moimoi.setPassword(hashPassword);
-        moimoi.setRole(this.userService.getRoleByName(moimoi.getRole().getName())); //lay role
+        moimoi.setRole(this.userService.getRoleByName(moimoi.getRole().getName())); // lay role
         System.out.println("Quyen: " + moimoi.getRole());
-        //save
+        // save
         this.userService.handleSaveUser(moimoi);
         return "redirect:/admin/user";
     }
