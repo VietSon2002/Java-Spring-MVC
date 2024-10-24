@@ -1,14 +1,18 @@
 package vn.hoidanit.laptopshop.controller.admin;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.multipart.MultipartFile;
+
+import jakarta.validation.Valid;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UploadService;
 import vn.hoidanit.laptopshop.service.UserService;
@@ -28,11 +32,11 @@ public class UserController {
 
     @RequestMapping("/admin")
     public String getHomePage(Model model) {
-        List<User> arrUsers = this.userService.getAllUserByEmail("son@gmail.com");
-        System.err.println(arrUsers);
+        // List<User> arrUsers = this.userService.getAllUserByEmail("son@gmail.com");
+        // System.err.println(arrUsers);
 
-        model.addAttribute("eric", "test");
-        model.addAttribute("hoidanIt", "form controller with model");
+        // model.addAttribute("eric", "test");
+        // model.addAttribute("hoidanIt", "form controller with model");
         return "hello";
     }
 
@@ -60,19 +64,25 @@ public class UserController {
 
     @PostMapping("/admin/user/create") // POST
     public String createUserPage(
-            @ModelAttribute("newUser") User moimoi, BindingResult result,
+            @ModelAttribute("newUser") @Valid User moimoi, BindingResult result,
             @RequestParam("anhFile") MultipartFile file, Model model) {
 
-        String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
-        String hashPassword = this.PasswordEncoder.encode(moimoi.getPassword());
+        // List<FieldError> errors = result.getFieldErrors();
+        // for (FieldError error : errors) {
+        // System.out.println(">>>" + error.getField() + " - " +
+        // error.getDefaultMessage());
+        // }
+
         if (result.hasErrors()) {
             return "admin/user/create";
         }
 
+        String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
+        String hashPassword = this.PasswordEncoder.encode(moimoi.getPassword());
         moimoi.setAvatar(avatar);
         moimoi.setPassword(hashPassword);
         moimoi.setRole(this.userService.getRoleByName(moimoi.getRole().getName())); // lay role
-        System.out.println("Quyen: " + moimoi.getRole());
+        // System.out.println("Quyen: " + moimoi.getRole());
         // save
         this.userService.handleSaveUser(moimoi);
         return "redirect:/admin/user";

@@ -1,7 +1,6 @@
 package vn.hoidanit.laptopshop.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -15,14 +14,9 @@ public class UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-
     public UserService(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
-    }
-
-    public String handHello() {
-        return "Hello from service";
     }
 
     public List<User> geAllUser() {
@@ -44,7 +38,7 @@ public class UserService {
     public void deleteUser(long id) {
         this.userRepository.deleteById(id);
     }
-    
+
     public Role getRoleByName(String name) {
         return this.roleRepository.findByName(name);
     }

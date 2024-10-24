@@ -50,8 +50,7 @@
                                                         <form:errors path="email" cssClass="invalid-feedback" />
                                                     </c:set>
                                                     <label class="form-label">Email:</label>
-                                                    <form:input type="email"
-                                                        class="form-control ${not empty errorEmail ? 'is-invalid' : ''}"
+                                                    <form:input type="email" class="form-control ${not empty errorEmail ? 'is-invalid' : ''}"
                                                         path="email" />
                                                     ${errorEmail}
                                                 </div>
