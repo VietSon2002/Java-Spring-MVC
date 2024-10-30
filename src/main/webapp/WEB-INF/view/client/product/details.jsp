@@ -67,6 +67,14 @@
             <div class="container-fluid py-5 mt-5">
                 <div class="container py-5">
                     <div class="row g-4 mb-5">
+                        <div>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item active"><a href="/">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Chi tiết sản phẩm</li>
+                                </ol>
+                            </nav>
+                        </div>
                         <div class="col-lg-8 col-xl-9">
                             <div class="row g-4">
                                 <div class="col-lg-6">
@@ -136,22 +144,22 @@
                                             </li>
                                             <li>
                                                 <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Oranges</a>
+                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Dell</a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Strawbery</a>
+                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Asus</a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Banana</a>
+                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Acer</a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Pumpkin</a>
+                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Lenovo</a>
                                                 </div>
                                             </li>
                                         </ul>

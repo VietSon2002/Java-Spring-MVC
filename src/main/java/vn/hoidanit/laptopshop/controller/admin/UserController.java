@@ -20,12 +20,12 @@ public class UserController {
 
     private final UserService userService;
     private final UploadService uploadService;
-    private final PasswordEncoder PasswordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, UploadService uploadService, PasswordEncoder PasswordEncoder) {
+    public UserController(UserService userService, UploadService uploadService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.uploadService = uploadService;
-        this.PasswordEncoder = PasswordEncoder;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @RequestMapping("/admin")
@@ -76,7 +76,7 @@ public class UserController {
         }
 
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
-        String hashPassword = this.PasswordEncoder.encode(moimoi.getPassword());
+        String hashPassword = this.passwordEncoder.encode(moimoi.getPassword());
         moimoi.setAvatar(avatar);
         moimoi.setPassword(hashPassword);
         moimoi.setRole(this.userService.getRoleByName(moimoi.getRole().getName())); // lay role

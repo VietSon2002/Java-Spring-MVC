@@ -65,10 +65,6 @@
     
             <jsp:include page="../layout/banner.jsp"/>
     
-    
-            <jsp:include page="../layout/featur.jsp"/>
-    
-    
             <!-- Fruits Shop Start-->
             <div class="container-fluid fruite py-5">
                 <div class="container py-5">
@@ -98,7 +94,7 @@
                                                     <div class="fruite-img">
                                                         <img src="/images/product/${product.image}" class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
-                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
+                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Laptop</div>
                                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                         <h4 style="font-size: 15px;">
                                                             <a href="/product/${product.id}">
@@ -130,7 +126,7 @@
                                                     <div class="fruite-img">
                                                         <img src="/client/img/fruite-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
-                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
+                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Laptop</div>
                                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                         <h4>Grapes</h4>
                                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
@@ -146,7 +142,7 @@
                                                     <div class="fruite-img">
                                                         <img src="/client/img/fruite-item-2.jpg" class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
-                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
+                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Laptop</div>
                                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                         <h4>Raspberries</h4>
                                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
@@ -170,7 +166,7 @@
                                                     <div class="fruite-img">
                                                         <img src="/client/img/fruite-item-1.jpg" class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
-                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
+                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Laptop</div>
                                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                         <h4>Oranges</h4>
                                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
@@ -186,7 +182,7 @@
                                                     <div class="fruite-img">
                                                         <img src="/client/img/fruite-item-6.jpg" class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
-                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
+                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Laptop</div>
                                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                         <h4>Apple</h4>
                                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
@@ -210,7 +206,7 @@
                                                     <div class="fruite-img">
                                                         <img src="/client/img/fruite-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
-                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
+                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Laptop</div>
                                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                         <h4>Grapes</h4>
                                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
@@ -226,7 +222,7 @@
                                                     <div class="fruite-img">
                                                         <img src="/client/img/fruite-item-4.jpg" class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
-                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
+                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Laptop</div>
                                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                         <h4>Apricots</h4>
                                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
@@ -250,7 +246,7 @@
                                                     <div class="fruite-img">
                                                         <img src="/client/img/fruite-item-3.jpg" class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
-                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
+                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Laptop</div>
                                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                         <h4>Banana</h4>
                                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
@@ -266,7 +262,7 @@
                                                     <div class="fruite-img">
                                                         <img src="/client/img/fruite-item-2.jpg" class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
-                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
+                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Laptop</div>
                                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                         <h4>Raspberries</h4>
                                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
@@ -282,7 +278,7 @@
                                                     <div class="fruite-img">
                                                         <img src="/client/img/fruite-item-1.jpg" class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
-                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
+                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Laptop</div>
                                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                         <h4>Oranges</h4>
                                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
@@ -302,6 +298,9 @@
                 </div>
             </div>
             <!-- Fruits Shop End-->
+
+            <jsp:include page="../layout/featur.jsp"/>
+    
     
             <jsp:include page="../layout/footer.jsp"/>
     
